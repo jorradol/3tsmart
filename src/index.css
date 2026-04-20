@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Mitr:wght@400;600&family=Sarabun:wght@400;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", "Mitr", "Sarabun", ui-sans-serif, system-ui, sans-serif;
+  
+  --color-natural-bg: #FDFBF7;
+  --color-natural-line: #E5E0D8;
+  --color-natural-ink: #4A4A4A;
+  
+  --color-pastel-pink: #FF9AA2;
+  --color-pastel-peach: #FFDAC1;
+  --color-pastel-lemon: #FFFFD1;
+  --color-pastel-green: #E2F0CB;
+  --color-pastel-blue: #C7CEEA;
+  --color-pastel-mint: #B5EAD7;
+  
+  --radius-xl: 30px;
+  --radius-2xl: 40px;
+}
+
+@layer base {
+  body {
+    @apply bg-natural-bg text-natural-ink overflow-hidden;
+    font-size: 36px;
+  }
+  
+  h1 { @apply font-bold text-[54px] leading-tight; }
+  h2 { @apply font-black text-[64px] leading-tight; }
+  h3 { @apply font-bold text-[40px]; }
+  
+  button {
+    @apply transition-all active:scale-95 cursor-pointer;
+  }
+}
+
+.glass {
+  @apply bg-white/70 backdrop-blur-md border border-natural-line shadow-sm;
+}
+
+.custom-scroll::-webkit-scrollbar {
+  width: 10px;
+}
+.custom-scroll::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+.custom-scroll::-webkit-scrollbar-thumb {
+  @apply bg-natural-line rounded-full;
+}
+
+.active-tab {
+  @apply bg-pastel-blue border-b-6 border-[#949FCB];
+}
+

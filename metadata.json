@@ -1,0 +1,13 @@
+{
+  "name": "3TSmart Classroom Pro",
+  "description": "An AI-powered interactive classroom OS for 65-inch touchscreens, featuring lesson generation, tutoring, quizzes, and a whiteboard with AI voice integration.",
+  "requestFramePermissions": [
+    "microphone"
+  ],
+  "majorCapabilities": [
+    "AI Lesson Generation",
+    "Real-time Whiteboard",
+    "Voice-enabled AI Tutor",
+    "Gamified Quiz System"
+  ]
+}

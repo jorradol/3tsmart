@@ -1,0 +1,39 @@
+{
+  "entities": {
+    "usage": {
+      "title": "Application Usage",
+      "description": "Tracks usage metrics per class",
+      "type": "object",
+      "properties": {
+        "classId": { "type": "string" },
+        "module": { "type": "string" },
+        "timestamp": { "type": "string", "format": "date-time" },
+        "duration": { "type": "number" }
+      },
+      "required": ["classId", "module", "timestamp"]
+    },
+    "score": {
+      "title": "Quiz Score",
+      "description": "Tracks student quiz results",
+      "type": "object",
+      "properties": {
+        "studentName": { "type": "string" },
+        "topic": { "type": "string" },
+        "score": { "type": "integer" },
+        "total": { "type": "integer" },
+        "timestamp": { "type": "string", "format": "date-time" }
+      },
+      "required": ["topic", "score", "total", "timestamp"]
+    }
+  },
+  "firestore": {
+    "/usage": {
+      "schema": "usage",
+      "description": "Collection of usage logs"
+    },
+    "/scores": {
+      "schema": "score",
+      "description": "Collection of quiz scores"
+    }
+  }
+}
