@@ -21,5 +21,5 @@ View your app in AI Studio: https://ai.studio/apps/6502a396-b2e1-454e-9c4e-486b8
    `npm run dev`
 =======
 # 3tsmart
-3T Smart Class Room DaaS
+3T Smart Class Room DaaS By Dentertain.com
 >>>>>>> a8b1bd9229386df1c211651857fcbf7f9f133d7a
