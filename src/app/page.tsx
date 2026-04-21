@@ -1,22 +1,17 @@
-/**
- * @license
- * SPDX-License-Identifier: Apache-2.0
- */
-
+"use client";
 import React, { useState, useCallback } from 'react';
-import Layout from './components/Layout';
-import LessonEngine from './components/LessonEngine';
-import TutorMode from './components/TutorMode';
-import QuizSystem from './components/QuizSystem';
-import Whiteboard from './components/Whiteboard';
-import LifeSkills from './components/LifeSkills';
-import Dashboard from './components/Dashboard';
+import Layout from '../components/Layout';
+import LessonEngine from '../components/LessonEngine';
+import TutorMode from '../components/TutorMode';
+import QuizSystem from '../components/QuizSystem';
+import Whiteboard from '../components/Whiteboard';
+import LifeSkills from '../components/LifeSkills';
+import Dashboard from '../components/Dashboard';
+import VirtualKeyboard from '../components/VirtualKeyboard';
+import { Keyboard } from 'lucide-react';
+import { cn } from '../lib/utils';
 
-import VirtualKeyboard from './components/VirtualKeyboard';
-import { Keyboard, ArrowBigUp as ShiftUp } from 'lucide-react';
-import { cn } from './lib/utils';
-
-export default function App() {
+export default function HomePage() {
   const [activeTab, setActiveTab] = useState('lesson');
   const [language, setLanguage] = useState<'th' | 'en'>('th');
   const [voiceEnabled, setVoiceEnabled] = useState(true);
@@ -24,17 +19,11 @@ export default function App() {
 
   const handleSpeak = useCallback((text: string) => {
     if (!voiceEnabled) return;
-    
-    // Cancel any ongoing speech
     window.speechSynthesis.cancel();
-    
-    const utterance = new SpeechSynthesisUtterance(text);
-    // Set language based on app state or content detection
-    // For simplicity, we use the app language
+    const utterance = new window.SpeechSynthesisUtterance(text);
     utterance.lang = language === 'th' ? 'th-TH' : 'en-US';
-    utterance.rate = 0.9; // Slightly slower for clarity
-    utterance.pitch = 1.1; // Slightly higher for a friendly "AI teacher" vibe
-    
+    utterance.rate = 0.9;
+    utterance.pitch = 1.1;
     window.speechSynthesis.speak(utterance);
   }, [voiceEnabled, language]);
 
@@ -59,9 +48,9 @@ export default function App() {
 
   return (
     <>
-      <Layout 
-        activeTab={activeTab} 
-        setActiveTab={setActiveTab} 
+      <Layout
+        activeTab={activeTab}
+        setActiveTab={setActiveTab}
         language={language}
         setLanguage={setLanguage}
         voiceEnabled={voiceEnabled}
@@ -69,8 +58,6 @@ export default function App() {
       >
         {renderContent()}
       </Layout>
-
-      {/* Floating Keyboard Toggle */}
       <button
         onClick={() => setIsKeyboardOpen(!isKeyboardOpen)}
         className={cn(
@@ -80,13 +67,11 @@ export default function App() {
       >
         <Keyboard size={40} />
       </button>
-
-      <VirtualKeyboard 
-        isOpen={isKeyboardOpen} 
-        onClose={() => setIsKeyboardOpen(false)} 
+      <VirtualKeyboard
+        isOpen={isKeyboardOpen}
+        onClose={() => setIsKeyboardOpen(false)}
         language={language}
       />
     </>
   );
 }
-
