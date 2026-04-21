@@ -1,8 +1,8 @@
-runtime:
-  type: nodejs
-  version: 20
-run:
-  command: npm start
+# apphosting.yaml
+runConfig:
+  # ระบุคำสั่งหลักในการเริ่มทำงาน
+  runCommand: npm run start
+  # กำหนด Environment Variable ให้ตรงตามที่ระบบถามหา
   env:
     - variable: PORT
       value: "8080"
